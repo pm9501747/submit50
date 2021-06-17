@@ -1,0 +1,135 @@
+Rock paper scissors game is also known as stone paper scissors. It is a hand game that is usually played between 2 people, each player can randomly form any one of three from their hand.
+
+A player who chooses rock will win by another player who chooses scissors but loose by the player who chooses paper; a player with paper will loose by the player with the scissors.
+
+If both players choose the same then the game is tied. Rock paper scissors game is mainly played among kids.
+
+Rock-Paper-Scissors Game Python Project
+The object of the rock-paper-scissor python project is to build a game for a single player that plays with a computer, anywhere, and anytime. This project is base on the rules that:
+
+rock blunts scissors so rock wins
+scissors cut the paper so scissors win
+paper cover rock so paper wins
+This project is build using tkinter, random modules, and the basic concept of python.
+
+In this python project, players have to choose any one from rock, paper, and scissors. Then click on the play button will show the result of the game.
+
+Project Prerequisites
+To implement this python rock paper scissors project we will use the basic concept of python with tkinter and random module.
+
+Tkinter is a standard GUI library which is one of the easiest ways to build a GUI application.
+random module use to generate random numbers
+To install the libraries we can use the pip installer command on the command prompt:
+
+pip install tkinter
+pip install random
+Download Code of Rock-Paper-Scissors Python Project
+Please download the source code of rock paper scissors project: Python Rock Paper Scissors
+
+Project File Structure
+These are the step to build a rock-paper-scissors game using python:
+
+Import required libraries
+Initialize window
+Code for user choice
+Code for computer choice
+Define functions
+Define buttons
+Let’s start
+
+1. Importing Libraries
+from tkinter import *
+import random
+The first step is to import libraries. Here, we required two modules so we need to import Tkinter and random modules.
+
+2. Initialize Window
+
+root = Tk()
+root.geometry('400x400')
+root.resizable(0,0)
+root.title('DataFlair-Rock,Paper,Scissors')
+root.config(bg ='seashell3')
+Tk() use to initialized Tkinter to create window
+geometry() sets the window width and height
+resizable(0,0) by this command we can fix the size of the window
+title() used to set the title of the window
+bg = ‘’ use to set the color of the background
+Label(root, text = 'Rock, Paper ,Scissors' , font='arial 20 bold', bg = 'seashell2').pack()
+Label() widget used when we want to display text that users can’t modify.
+root is the name of our window
+text which displays on the label as the title of that label
+font in which form the text is written
+pack used to the organized widget in form of block
+3. For User Choice
+user_take = StringVar()
+Label(root, text = 'choose any one: rock, paper ,scissors' , font='arial 15 bold', bg = 'seashell2').place(x = 20,y=70)
+Entry(root, font = 'arial 15', textvariable = user_take , bg = 'antiquewhite2').place(x=90 , y = 130)
+user_take is a string type variable that stores the choice that the user enters.
+Entry() widget used when we want to create an input text field.
+textvariable used to retrieve the text to entry widget
+place() – place widgets at specific position
+4. For Computer Choice
+comp_pick = random.randint(1,3)
+if comp_pick == 1:
+    comp_pick = 'rock'
+elif comp_pick ==2:
+    comp_pick = 'paper'
+else:
+    comp_pick = 'scissors'
+random.randint() function will randomly take any number from the given number.
+
+Here we give the if-else() condition to play rock paper scissors
+
+If the computer choose 1 then the rock will set to comp_pick variable
+If the computer choose 2 then the paper will set to comp_pick variable
+If the computer choose 3 then scissors will set to comp_pick variable
+5. Function to Start Game
+Result = StringVar()
+def play():
+    user_pick = user_take.get()
+    if user_pick == comp_pick:
+        Result.set('tie,you both select same')
+    elif user_pick == 'rock' and comp_pick == 'paper':
+        Result.set('you loose,computer select paper')
+    elif user_pick == 'rock' and comp_pick == 'scissors':
+        Result.set('you win,computer select scissors')
+    elif user_pick == 'paper' and comp_pick == 'scissors':
+        Result.set('you loose,computer select scissors')
+    elif user_pick == 'paper' and comp_pick == 'rock':
+        Result.set('you win,computer select rock')
+    elif user_pick == 'scissors' and comp_pick == 'rock':
+        Result.set('you loose,computer select rock')
+    elif user_pick == 'scissors' and comp_pick == 'paper':
+        Result.set('you win ,computer select paper')
+    else:
+        Result.set('invalid: choose any one -- rock, paper, scissors')
+6. Function to Reset
+user_take is a string type variable that stores the choice that the user enters.
+We give if-else() condition to check who wins between user choice and computer choice.
+In this rock paper scissors game,  a player who chooses rock will win by another player who chooses scissors but loose by the player who chooses paper; a player with paper will loose by the player with the scissors. If both choose the same then the game will tie.
+def Reset():
+    Result.set("") 
+    user_take.set("")
+7. Function to Exit
+This function set all variables to an empty string.
+
+def Exit():
+    root.destroy()
+root.destroy() will quit the rock paper scissors program by stopping the mainloop().
+
+8. Define Buttons
+Entry(root, font = 'arial 10 bold', textvariable = Result, bg ='antiquewhite2',width = 50,).place(x=25, y = 250)
+Button(root, font = 'arial 13 bold', text = 'PLAY'  ,padx =5,bg ='seashell4' ,command = play).place(x=150,y=190)
+Button(root, font = 'arial 13 bold', text = 'RESET'  ,padx =5,bg ='seashell4' ,command = Reset).place(x=70,y=310)
+Button(root, font = 'arial 13 bold', text = 'EXIT'  ,padx =5,bg ='seashell4' ,command = Exit).place(x=230,y=310)
+root.mainloop()
+Button() widget used when we want to display a button.
+command called the specific function when the button will be clicked.
+root.mainloop() method executes when we run our program.
+Rock Paper Scissors Program Output
+rock paper scissors program output
+
+ 
+
+Summary
+we have successfully developed the rock-paper-scissors game using python. We used Tkinter library for rendering graphics. We use a random module to generate random choices. We learn how to create button widget. We also learn how to call the function using button. In this way, we created a rock-paper-scissors python game.
